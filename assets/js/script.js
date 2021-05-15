@@ -13,13 +13,12 @@ const getData = (api) => {
     });
 };
 
-
+const a = ("");
 const getPokemon = (api,html) => {
   return fetch(api)
   .then((response) => response.json())
   .then((json) => {
-    dibujarPokemon(json.sprites.other.dream_world.front_default, json.forms[0].name, json.species.name,html);
-    
+    dibujarPokemon(json.sprites.other["official-artwork"].front_default, json.forms[0].name, json.species.name,html);
   })
   .catch((error) => {
     console.log("error: ", error);
@@ -27,7 +26,6 @@ const getPokemon = (api,html) => {
 };
 
 const dibujarPokemon = (img, name,specie,html) => {
-  
   html += '<div class="col-md-4">';
   html += '<div class="card" style="width: 18rem;">';
   html += `<img src="${img}" class="card-img-top" alt=".."/>`; 
